@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameStock Assistant | Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="login-page">
+  <main class="login-shell">
+    <section class="login-card">
+      <p class="eyebrow">Game batch management</p>
+      <h1>GameStock Assistant</h1>
+      <p class="login-description">
+        Access the conversational dashboard to view, add, and update inventory products.
+      </p>
+
+      <form id="loginForm" class="login-form">
+        <label>
+          Email
+          <input type="email" id="email" value="admin@gamestock.com" autocomplete="email" required />
+        </label>
+
+        <label>
+          Password
+          <input type="password" id="password" value="123456" autocomplete="current-password" required />
+        </label>
+
+        <button type="submit">Sign in</button>
+        <p id="loginFeedback" class="feedback"></p>
+      </form>
+
+      <div class="demo-access">
+        <strong>Demo access</strong>
+        <span>admin@gamestock.com / 123456</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

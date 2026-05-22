@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameStock Assistant | Conversational Console</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div>
+        <p class="eyebrow">Front-end + C# API</p>
+        <h1>GameStock Assistant</h1>
+        <p class="sidebar-description">
+          A conversational inventory system inspired by a console application, redesigned as a front-end portfolio interface.
+        </p>
+      </div>
+
+      <section class="metrics" id="metrics">
+        <article>
+          <span id="metricProducts">0</span>
+          <small>Products</small>
+        </article>
+        <article>
+          <span id="metricUnits">0</span>
+          <small>Units</small>
+        </article>
+        <article>
+          <span id="metricValue">$0.00</span>
+          <small>Total value</small>
+        </article>
+      </section>
+
+      <button class="logout-btn" id="logoutBtn">Sign out</button>
+    </aside>
+
+    <main class="chat-panel">
+      <header class="chat-header">
+        <div>
+          <span class="status-dot"></span>
+          <strong id="userGreeting">Hello!</strong>
+          <p>Type a menu number or write a command in the input bar.</p>
+        </div>
+      </header>
+
+      <section class="start-screen" id="startScreen">
+        <div class="start-card">
+          <p class="eyebrow">System ready</p>
+          <h2>Start a guided inventory conversation</h2>
+          <p>
+            The assistant will display a numbered menu. You can type numbers such as 1, 2, 3, or write commands such as "add product" and "view inventory".
+          </p>
+          <button id="startConversationBtn">Initiate conversation</button>
+        </div>
+      </section>
+
+      <section class="chat-window hidden" id="chatWindow" aria-live="polite"></section>
+
+      <form class="message-composer hidden" id="messageComposer">
+        <input
+          id="messageInput"
+          type="text"
+          autocomplete="off"
+          placeholder="Type a number or command..."
+          aria-label="Type a message"
+        />
+        <button type="submit">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
