@@ -1,4 +1,4 @@
-# 🎮 GameStock Assistant — Conversational Inventory Management 🎮
+# 🎮 Game Store - C#
 
 Game store management system developed in C#, focused on object-oriented programming concepts such as classes, methods, and data handling.
 
@@ -68,3 +68,17 @@ The system allows users to:
 - Shopping cart sales system
 - Customer registration
 - Reports and dashboards
+
+## 👨‍💻 Authors
+
+Gustavo Purkoot Ferreira  
+https://github.com/gustavopurkoot
+
+Lucas Eduardo Abrantes Kirsten  
+https://github.com/olucaskirsten
+
+Menando Sales Neto
+
+## 📄 License
+
+This project is for educational purposes only.

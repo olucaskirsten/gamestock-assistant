@@ -39,10 +39,6 @@ button {
   cursor: pointer;
 }
 
-.hidden {
-  display: none !important;
-}
-
 .login-page {
   display: grid;
   place-items: center;
@@ -82,26 +78,21 @@ h1 {
   margin: 0 0 16px;
 }
 
-h2 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  line-height: 1;
-  margin: 0 0 16px;
-}
-
 .login-description,
 .sidebar-description,
-.chat-header p,
-.start-card p {
+.chat-header p {
   color: var(--muted);
   line-height: 1.6;
 }
 
-.login-form {
+.login-form,
+.chat-form {
   display: grid;
   gap: 16px;
 }
 
-.login-form label {
+.login-form label,
+.chat-form label {
   display: grid;
   gap: 8px;
   color: var(--muted);
@@ -123,8 +114,8 @@ input:focus {
 }
 
 .login-form button,
-.start-card button,
-.message-composer button,
+.chat-form button,
+.quick-actions button,
 .logout-btn {
   color: #ffffff;
   background: linear-gradient(135deg, var(--accent), #5236d9);
@@ -160,16 +151,14 @@ input:focus {
 }
 
 .app-shell {
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 360px 1fr;
   gap: 22px;
   padding: 22px;
-  overflow: hidden;
 }
 
 .sidebar {
-  min-height: 0;
   border-radius: var(--radius);
   padding: 28px;
   display: flex;
@@ -207,11 +196,10 @@ input:focus {
 }
 
 .chat-panel {
-  height: calc(100vh - 44px);
-  min-height: 0;
   border-radius: var(--radius);
   display: grid;
   grid-template-rows: auto 1fr auto;
+  min-height: calc(100vh - 44px);
   overflow: hidden;
 }
 
@@ -238,36 +226,12 @@ input:focus {
   margin-right: 8px;
 }
 
-.start-screen {
-  min-height: 0;
-  display: grid;
-  place-items: center;
-  padding: 28px;
-  overflow-y: auto;
-}
-
-.start-card {
-  width: min(100%, 620px);
-  padding: 34px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(135deg, rgba(124, 92, 255, 0.18), rgba(34, 211, 238, 0.08)),
-    rgba(255, 255, 255, 0.045);
-}
-
-.start-card button {
-  margin-top: 14px;
-}
-
 .chat-window {
-  min-height: 0;
   padding: 22px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  scroll-behavior: smooth;
 }
 
 .message {
@@ -276,61 +240,38 @@ input:focus {
   padding: 15px 16px;
   border-radius: 18px;
   line-height: 1.55;
-  white-space: normal;
-  overflow-wrap: anywhere;
 }
 
 .message.assistant {
   align-self: flex-start;
   background: rgba(255, 255, 255, 0.075);
   border: 1px solid var(--line);
-  border-bottom-left-radius: 6px;
 }
 
 .message.user {
   align-self: flex-end;
   background: linear-gradient(135deg, rgba(124, 92, 255, 0.95), rgba(34, 211, 238, 0.65));
-  border-bottom-right-radius: 6px;
   font-weight: 700;
 }
 
-.message.system {
-  align-self: center;
-  color: var(--muted);
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid var(--line);
-  font-size: 0.88rem;
-  text-align: center;
-}
-
-.message pre,
-.menu-list {
-  margin: 0;
-  white-space: pre-wrap;
-  font-family: "Inter", system-ui, sans-serif;
-}
-
-.menu-list strong {
-  color: var(--accent-2);
-}
-
-.message-composer {
-  display: grid;
-  grid-template-columns: 1fr auto;
+.quick-actions {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
-  padding: 16px;
+  padding: 18px 22px;
   border-top: 1px solid var(--line);
-  background: rgba(8, 11, 18, 0.72);
+  background: rgba(8, 11, 18, 0.38);
 }
 
-.message-composer input {
-  border-radius: 999px;
-  padding: 15px 18px;
+.quick-actions button {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--line);
+  padding: 11px 14px;
 }
 
-.message-composer button {
-  min-width: 98px;
-  border-radius: 999px;
+.quick-actions button:hover,
+.logout-btn:hover {
+  border-color: rgba(124, 92, 255, 0.75);
 }
 
 .product-grid {
@@ -377,6 +318,14 @@ input:focus {
   color: var(--text);
 }
 
+.chat-form {
+  min-width: min(420px, 82vw);
+}
+
+.chat-form button {
+  margin-top: 4px;
+}
+
 .summary-card p {
   margin: 8px 0 0;
   color: var(--muted);
@@ -384,10 +333,7 @@ input:focus {
 
 @media (max-width: 900px) {
   .app-shell {
-    height: auto;
-    min-height: 100vh;
     grid-template-columns: 1fr;
-    overflow: visible;
   }
 
   .sidebar {
@@ -395,22 +341,19 @@ input:focus {
   }
 
   .chat-panel {
-    height: 72vh;
-    min-height: 620px;
+    min-height: 70vh;
   }
 }
 
 @media (max-width: 560px) {
   .app-shell {
     padding: 12px;
-    gap: 12px;
   }
 
   .login-card,
   .sidebar,
   .chat-header,
-  .chat-window,
-  .start-card {
+  .chat-window {
     padding: 18px;
   }
 
@@ -418,11 +361,11 @@ input:focus {
     max-width: 100%;
   }
 
-  .message-composer {
-    grid-template-columns: 1fr;
+  .quick-actions {
+    padding: 14px;
   }
 
-  .message-composer button {
+  .quick-actions button {
     width: 100%;
   }
 }

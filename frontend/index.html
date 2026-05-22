@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GameStock Assistant | Conversational Console</title>
+  <title>GameStock Assistant | Dashboard</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -13,7 +13,7 @@
         <p class="eyebrow">Front-end + C# API</p>
         <h1>GameStock Assistant</h1>
         <p class="sidebar-description">
-          A conversational inventory system inspired by a console application, redesigned as a front-end portfolio interface.
+          A conversational interface for managing products, consoles, batches, and inventory.
         </p>
       </div>
 
@@ -40,33 +40,20 @@
         <div>
           <span class="status-dot"></span>
           <strong id="userGreeting">Hello!</strong>
-          <p>Type a menu number or write a command in the input bar.</p>
+          <p>Choose an action below or follow the assistant instructions.</p>
         </div>
       </header>
 
-      <section class="start-screen" id="startScreen">
-        <div class="start-card">
-          <p class="eyebrow">System ready</p>
-          <h2>Start a guided inventory conversation</h2>
-          <p>
-            The assistant will display a numbered menu. You can type numbers such as 1, 2, 3, or write commands such as "add product" and "view inventory".
-          </p>
-          <button id="startConversationBtn">Initiate conversation</button>
-        </div>
-      </section>
+      <section class="chat-window" id="chatWindow" aria-live="polite"></section>
 
-      <section class="chat-window hidden" id="chatWindow" aria-live="polite"></section>
-
-      <form class="message-composer hidden" id="messageComposer">
-        <input
-          id="messageInput"
-          type="text"
-          autocomplete="off"
-          placeholder="Type a number or command..."
-          aria-label="Type a message"
-        />
-        <button type="submit">Send</button>
-      </form>
+      <footer class="quick-actions" id="quickActions">
+        <button data-action="list">View inventory</button>
+        <button data-action="create">Add product</button>
+        <button data-action="search">Find product</button>
+        <button data-action="update">Update product</button>
+        <button data-action="alerts">Alerts</button>
+        <button data-action="summary">Summary</button>
+      </footer>
     </main>
   </div>
 
