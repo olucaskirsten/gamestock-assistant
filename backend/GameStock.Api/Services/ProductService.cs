@@ -33,6 +33,14 @@ public class ProductService
         return product is null ? null : ToResponse(product);
     }
 
+    public List<ProductResponse> GetByName(string name)
+    {
+    return _products
+        .Where(product => product.Name.Contains(name, StringComparison.OrdinalIgnoreCase))
+        .Select(ToResponse)
+        .ToList();
+    }
+
     public OperationResult Create(ProductCreateRequest request)
     {
         var validation = Validate(request.Name, request.Price, request.Console, request.Quantity);

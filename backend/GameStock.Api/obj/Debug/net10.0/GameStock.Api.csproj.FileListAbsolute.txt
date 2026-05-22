@@ -24,3 +24,4 @@ D:\Downloads\gamestock-assistant\backend\gamestock.api\obj\Debug\net10.0\refint\
 D:\Downloads\gamestock-assistant\backend\gamestock.api\obj\Debug\net10.0\GameStock.Api.pdb
 D:\Downloads\gamestock-assistant\backend\gamestock.api\obj\Debug\net10.0\GameStock.Api.genruntimeconfig.cache
 D:\Downloads\gamestock-assistant\backend\gamestock.api\obj\Debug\net10.0\ref\GameStock.Api.dll
+D:\Downloads\gamestock-assistant\backend\gamestock.api\obj\Debug\net10.0\GameStock.Api.sourcelink.json

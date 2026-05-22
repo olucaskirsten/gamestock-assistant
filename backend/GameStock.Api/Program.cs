@@ -70,6 +70,15 @@ app.MapGet("/api/products/{id:int}", (ProductService service, int id) =>
     return product is null ? Results.NotFound(new { message = "Product not found." }) : Results.Ok(product);
 });
 
+app.MapGet("/api/products/search", (ProductService service, string name) =>
+{
+    var products = service.GetByName(name);
+
+    return products.Count == 0
+        ? Results.NotFound(new { message = "No products found with that name." })
+        : Results.Ok(products);
+});
+
 app.MapPost("/api/products", (ProductService service, ProductCreateRequest request) =>
 {
     var result = service.Create(request);
