@@ -94,7 +94,7 @@ function createMenu() {
       0 - Show this menu again<br>
       1 - View inventory<br>
       2 - Add a new product<br>
-      3 - Find a product by ID<br>
+      3 - Find a product by name<br>
       4 - Update a product<br>
       5 - Delete a product<br>
       6 - View low-stock alerts<br>
@@ -226,21 +226,22 @@ async function handleAddProductFlow(input) {
 
 async function startFindProductFlow() {
   setFlow({ type: "find" });
-  await botMessage("Type the product ID you want to view.");
+  await botMessage("Type the game name you want to search for.");
 }
 
 async function handleFindProductFlow(input) {
-  const id = Number(input.trim());
+  const name = input.trim();
 
-  if (!Number.isInteger(id) || id <= 0) {
-    await botMessage("Please type a valid product ID.");
+  if (!name) {
+    await botMessage("Please type a game name.");
     return;
   }
 
-  const product = await api.getProduct(id);
+  const products = await api.searchProductsByName(name);
+
   currentFlow = null;
-  await botMessage("I found this product:");
-  await botMessage(createProductCard(product));
+  await botMessage(`Here are the products found for "${escapeHtml(name)}":`);
+  await botMessage(createProductList(products));
   await botMessage("Type 0 to see the main menu again, or type another option number.");
 }
 
