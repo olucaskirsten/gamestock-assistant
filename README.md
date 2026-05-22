@@ -1,4 +1,8 @@
-# 🎮 GameStock Assistant — Conversational Inventory Management 🎮
+# GameStock Assistant — Conversational Inventory Management 🎮
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://gamestock-assistant.vercel.app)
+
+GameStock Assistant is a conversational front-end interface for managing a game inventory system. The project includes a C# ASP.NET Core API for local integration and a front-end demo mode designed to run online through Vercel.
 
 Game store management system developed in C#, focused on object-oriented programming concepts such as classes, methods, and data handling.
 
